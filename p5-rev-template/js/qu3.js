@@ -72,3 +72,9 @@ function keyPressed (){
         rect2.y += random(-10,10);
     }
 }
+
+function mouseMoved (){
+   rect3.color.r = random(0,255);
+   rect3.color.g = random(0,255);
+   rect3.color.b = random(0,255);
+}
