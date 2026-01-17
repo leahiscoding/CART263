@@ -47,21 +47,23 @@ function setup() {
 
 function draw(){
     background(0);
-    if (rect1.turntowhite) 
-        {fill(255)}
-    else
-    {fill(rect1.color.r, rect1.color.g, rect1.color.b);}
-    rect(0,0,width/3,height);
-    if (rect2.turntowhite) 
-        {fill(255)}
-    else
-    {fill(rect2.color.r, rect2.color.g, rect2.color.b);}
-     rect(width/3,0,width/3,height);
-    if (rect3.turntowhite) 
-        {fill(255)}
-    else
-    {fill(rect3.color.r, rect3.color.g, rect3.color.b);}
-    rect(width/3*2,0, width/3,height);
+    // if (rect1.turntowhite) 
+    //     {fill(255)}
+    // else
+    // {fill(rect1.color.r, rect1.color.g, rect1.color.b);}
+    // rect(0,0,width/3,height);
+    // if (rect2.turntowhite) 
+    //     {fill(255)}
+    // else
+    // {fill(rect2.color.r, rect2.color.g, rect2.color.b);}
+    //  rect(width/3,0,width/3,height);
+    // if (rect3.turntowhite) 
+    //     {fill(255)}
+    // else
+    // {fill(rect3.color.r, rect3.color.g, rect3.color.b);}
+    // rect(width/3*2,0, width/3,height);
+     drawRect(0,0);
+    drawRect(width/3*2,0);
     
 }
 
@@ -85,3 +87,15 @@ function mouseMoved (){
         rect3.turntowhite = true;
     }
 }
+
+function drawRect(x,y){
+    if(mouseX>x && mouseX<x+width/3){
+        fill(255)
+    }
+    else{
+        fill(rect3.color.r, rect3.color.g, rect3.color.b);
+    }
+   
+    rect(x,y, width/3,height);
+}
+
