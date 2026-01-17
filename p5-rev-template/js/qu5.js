@@ -1,6 +1,6 @@
 "use strict";
 
-let counter = 0;
+let counter = 1;
 let qu5Sq = {
     x: 50,
     y: 50,
@@ -24,7 +24,14 @@ function draw (){
     push ();
     displaySquare(qu5Sq.x, qu5Sq.y, qu5Sq.w, qu5Sq.h, qu5Sq.color.r, qu5Sq.color.g, qu5Sq.color.b);
     mouseHover();
-    fill (255,255,255,circleAlpha);
+
+    let tempCounter = 1;
+    while (tempCounter <= counter){
+        circleRadius += 10;
+        circleAlpha -= 20;
+        tempCounter ++;
+    }
+    fill (255,255,255,circleAlpha + (tempCounter * 10));
     circle(0,0,circleRadius);
     ellipseMode (CENTER);
     translate (WIDTH / 2, HEIGHT / 2);
@@ -57,6 +64,8 @@ function mousePressed() {
     if (q5Hovering())
     {counter ++;
    }
+   if (counter >= 10) counter++;
+   
     console.log (counter);
 }
 // ask sabine about this not working
