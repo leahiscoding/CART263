@@ -4,13 +4,17 @@ function setup () {
 }
 
 function draw (){
-    
+    background (0); 
+    push();
     fill (255);
     textSize (32);
+    textAlign (CENTER);
     text ("test", width/2, height/2);
+    pop();
     // ask sabine why there's two tests
-    textAlign (CENTER, CENTER);
     
+    push ();
+    fill (255);
     translate(25, 25)
     textSize (16);
     textAlign (LEFT, TOP);
@@ -27,4 +31,5 @@ function draw (){
         text (i, 0, y);
     
     }
+    pop ();
 }

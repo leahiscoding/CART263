@@ -1,9 +1,6 @@
 let q7radius = 40;
-let qcolour = {
-    r: random (0, 255),
-    g: random (0, 255),
-    b: random (0, 255)
-}
+let q7colour = null;
+let circleequal = true
 
 function setup (){
     createCanvas (600,600);
@@ -16,24 +13,49 @@ function setup (){
 }
 
 function draw (){
+    background (0);
+    push();
    translate (q7radius/2, q7radius/2);
    // it doesn't cut off
    for (let i = 0; i < width; i += q7radius){
         for (let j = 0; j < height; j += q7radius){
-            circle (i, j, q7radius);
-        }
+            fill (q7colour.r, q7colour.g, q7colour.b);
+            
+
+            if (circleequal === true) {
+                circle (i, j, q7radius);
+            }
+            else {
+                rect (i-20, j-20, q7radius, q7radius);
+            }
+        
    }
+}
+   pop();
    
+
 }
 
 
 function keyPressed (){
-    if (keyIsPressed === true && key === ""){
-    qcolour.r = random (0, 255);
-    qcolour.g = random (0, 255);
-    qcolour.b = random (0, 255);
+    console.log(key)
+    if (key === " "){
+
+    q7colour.r = random (0, 255);
+    q7colour.g = random (0, 255);
+    q7colour.b = random (0, 255);
+ 
     };
-    console.log ("Hello, world!");
+   
 }
 
+function mousePressed (){
+    if (circleequal === true){
+        circleequal = false;
+
+    }
+    else {
+        circleequal = true;
+    }
+}
 // color changing issue (sabine)
