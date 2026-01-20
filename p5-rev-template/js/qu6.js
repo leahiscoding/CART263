@@ -25,7 +25,7 @@ function draw (){
             text (i, x, 0);
             // the text in here is just whatever the value of i is
         }
-    for (let i = 0; i <= 15 ; i ++)
+    for (let i = 15; i >= 0 ; i --)
     {
         let y = 30 * i;
         text (i, 0, y);
