@@ -59,3 +59,7 @@ function mousePressed (){
     }
 }
 // color changing issue (sabine)
+// function mousepressed
+/*  function mousePressed () {
+    circleequal = !circleequal;
+}  using boolean to use function*/
