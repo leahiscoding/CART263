@@ -149,10 +149,7 @@ add to the existing content an h2 element containing the text `TEST 123` */
 
 /*************************************** */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
-an img element that holds `one.png`, and add the class newStyle to said paragraph element. */
-
-document.getElementsByTagName("img")[4]
-
+an img element that holds `one.png`, and add the class newStyle to said paragraph element.
 
 
 
