@@ -6,51 +6,111 @@ console.log("we are a go!")
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
-/***CODE */
+//console.log (document.getElementsByTagName("p"));
 /***OUTPUT: 
- * 
+ *
+0
+<p id="1">…</p>
+1
+<p id="2" class="img-descript">…</p>
+2
+<p id="3" class="img-descript">…</p>
+3
+<p id="4" class="img-descript">…</p>
+4
+<p id="5" class="img-descript">…</p>
+5
+<p id="6" class="img-descript">…</p>
+6
+<p id="7" class="img-descript">…</p>
+7
+<p id="8" class="img-descript">…</p>
+8
+<p id="9" class="img-descript">…</p>
+
  */
 
 
 /*************************************** */
 /* 2: only the first paragraph element */
-/***CODE */
+// console.log (document.getElementsByTagName("p")[0]);
 /***OUTPUT: 
- * 
+ * <p id="1">…</p> 
+
  */
 
 
 /*************************************** */
 /* 3: all elements with the class inner-container */
-/***CODE */
+// console.log(document.getElementsByClassName("inner-container"));
 /***OUTPUT: 
- * 
+
+0
+<div class="inner-container">…</div>
+1
+<div class="inner-container">…</div>
+2
+<div class="inner-container">…</div>
+3
+<div class="inner-container">…</div>
+4
+<div class="inner-container">…</div>
+5
+<div class="inner-container">…</div>
+6
+<div class="inner-container">…</div>
+7
+<div class="inner-container">…</div>
+
+HTMLCollection Prototype
+
+
  */
 
 
 /*************************************** */
+// ask sabine tomorrow
 /* 4: the last image element inside the element that has the class img-container */
-/***CODE */
+// console.log(document.getElementsByClassName("img-container")[7]);
 /***OUTPUT: 
- * 
+<div class="img-container"> 
+<img class="img-image" src="task-2-images/seventeen.png">
+</div>
+
  */
 
 
 /*************************************** */
-/* 5A: all h2 elements */
-/* 5B: length of the list in 5A */
-/* 5C: the text content of the first element in the list from 5A */
-/***CODE */
+
+
+/* 5A
+/* 5B
+/* 5C // ask sabine */
+// console.log(document.getElementsByTagName("h2"));
+// console.log(document.getElementsByTagName("h2").length);
+// console.log(document.getElementsByTagName("h2")[0].textContent);
 /***OUTPUT: 
- * 
- */
+/* 5A: <h2> The header of this fancy page</h2>
+/* 5B: 1
+/* 5C: The header of this fancy page
+
 
 
 /*************************************** */
 /* 6: the element with id name parent */
-/***CODE */
+// console.log(document.getElementById("parent"));
 /***OUTPUT: 
- * 
+<section id="parent">
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+<div class="inner-container">…</div>
+</section>
+
  */
 
 /*************************************** */
@@ -60,31 +120,37 @@ console.log("we are a go!")
 /*************************************** */
 /*** START PART TWO MODIFY */ 
 /*************************************** */
-/* 1: Select the first paragraph and replace the text within the paragraph... */
-/***CODE */
+//come back to this topic 
+// document.getElementsByTagName("p")[0].textContent = "Leah, Jan 22, 2026"; 
 /*************************************** */
+
 /* 2: Select all elements in the HTML that have the class name content-container
  and change the background color ... of first and second ...*/
-/***CODE */
+//document.getElementsByClassName("content-container")[0].style.background = "lightpink";
+// document.getElementsByClassName("content-container")[1].style.background = "lightyellow";
+
+
 
 /*************************************** */
-/* 3: Change the src element of the first image element on the page to be ...
-/***CODE */
+/* 3: Change the src element of the first image element on the page to be ...*/
+// ask sabine 
+// //document.getElementsByTagName("img")[0].src = seven.png;
 
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
-replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123`
-/***CODE */
+replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123` */
+// document.getElementsByTagName("p")[2].innerHTML = "<h2> TEST 123 </h2>";
 
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
-add to the existing content an h2 element containing the text `TEST 123`
-/***CODE */
+add to the existing content an h2 element containing the text `TEST 123` */
+// document.getElementsByTagName("p")[3].innerHTML += "<h2> TEST 123 </h2>";
+
 
 /*************************************** */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element.
-/***CODE */
+
 
 
 /*************************************** */
