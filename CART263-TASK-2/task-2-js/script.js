@@ -69,7 +69,7 @@ HTMLCollection Prototype
 
 
 /*************************************** */
-// ask sabine tomorrow
+// ask sabine tomorrow (solved)
 /* 4: the last image element inside the element that has the class img-container */
 // console.log(document.getElementsByClassName("img-container")[7]);
 /***OUTPUT: 
@@ -85,7 +85,7 @@ HTMLCollection Prototype
 
 /* 5A
 /* 5B
-/* 5C // ask sabine */
+/* 5C // ask sabine (solved)*/ 
 // console.log(document.getElementsByTagName("h2"));
 // console.log(document.getElementsByTagName("h2").length);
 // console.log(document.getElementsByTagName("h2")[0].textContent);
@@ -133,7 +133,7 @@ HTMLCollection Prototype
 
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...*/
-// ask sabine 
+// ask sabine (solved)
 // //document.getElementsByTagName("img")[0].src = seven.png;
 
 /*************************************** */
@@ -151,12 +151,12 @@ add to the existing content an h2 element containing the text `TEST 123` */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element. */
 
-let fifth_p = document.getElementsByTagName("p")[4]
-fifth_p.classList.add("newStyle")
-fifth_p.innerHTML += `<img src="task-2-images/one.png">`
+// let fifth_p = document.getElementsByTagName("p")[4]
+// fifth_p.classList.add("newStyle")
+// fifth_p.innerHTML += `<img src="task-2-images/one.png">`
 // add in an image tag element and use a property src to say which image. `(we are using backtakes to use double quotes inside)< we need these things to make an actual element
 // img src = > image tag
-// ask Sabine
+// ask Sabine (solved)
 
 
 /*************************************** */
@@ -167,16 +167,16 @@ fifth_p.innerHTML += `<img src="task-2-images/one.png">`
 4)assign the element from innerContainers variable with the same index 
 (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...)*/
 
-let colors = ['red','blue','green','orange'];
-let innerContainers = document.getElementsByClassName("inner-container") 
+// let colors = ['red','blue','green','orange'];
+// let innerContainers = document.getElementsByClassName("inner-container") 
 
-for(let i=0; i<innerContainers.length; i++){
-    innerContainers[i].style.background=colors[i]
-    //where am I using the colours
-    // you're accessing the elements and you're using the colour backgrounds as the elements
-    // style.color = text style.background = background of the container
-}
-// ask Sabine
+// for(let i=0; i<innerContainers.length; i++){
+//     innerContainers[i].style.background=colors[i]
+//     //where am I using the colours
+//     // you're accessing the elements and you're using the colour backgrounds as the elements
+//     // style.color = text style.background = background of the container
+// }
+// ask Sabine (solved)
 
 /*************************************** */
 /*** END PART TWO MODIFY */ 
@@ -187,29 +187,29 @@ for(let i=0; i<innerContainers.length; i++){
 /*************************************** */
 /* 1: NEW PARAGRAPHS */
 /* 1A: Access all paragraph elements, and store the result in a variable called: allPTagsThree */
-let allPTagsThree = document.querySelectorAll ("p")
+// let allPTagsThree = document.querySelectorAll ("p")
 // we can also use document getElementsByTagName
 /* 1B: Create a function:function customCreateElement(parent){ //body } */
-function customCreateElement (parent) {
-    /* 1C:  In the body of customCreateElement create a new parargraph element*/
-    let newParagraph = document.createElement("p")
-    /* 1D:  Set the text of this element to be : `using create Element`*/
-    newParagraph.innerHTML = "using create Elememt"
-    /* 1E:  Set the background of this paragraph element to be green */
-    newParagraph.style.backgroundColor = "green"
-    /* 1F:  Set the color of the text in this paragraph element to be white */
-    newParagraph.style.color = "white"
-    /* 1G: Append this new element to the parent variable within the function. */
-    parent.appendChild(newParagraph)
-    // parent is already defined in the parameters 
+// function customCreateElement (parent) {
+//     /* 1C:  In the body of customCreateElement create a new parargraph element*/
+//     let newParagraph = document.createElement("p")
+//     /* 1D:  Set the text of this element to be : `using create Element`*/
+//     newParagraph.innerHTML = "using create Elememt"
+//     /* 1E:  Set the background of this paragraph element to be green */
+//     newParagraph.style.backgroundColor = "green"
+//     /* 1F:  Set the color of the text in this paragraph element to be white */
+//     newParagraph.style.color = "white"
+//     /* 1G: Append this new element to the parent variable within the function. */
+//     parent.appendChild(newParagraph)
+//     // parent is already defined in the parameters 
 
-    // the function is never been called
-}
+//     // the function is never been called
+// }
 
-for (let i=0; i<allPTagsThree.length; i++){
-    customCreateElement(allPTagsThree[i])
-    // the parent is allPTagThree > parent is in the parameter and we're inserting the ptag inside of the parent paragraph
-}
+// for (let i=0; i<allPTagsThree.length; i++){
+//     customCreateElement(allPTagsThree[i])
+//     // the parent is allPTagThree > parent is in the parameter and we're inserting the ptag inside of the parent paragraph
+// }
 
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
@@ -224,38 +224,38 @@ passing the current allPTagsThree element as the parent with each iteration.*/
 /*************************************** */
 /* 2: GRID OF BOXES */
 /* 2A: Create another new function: function customNewBoxCreate(parent){ //body }*/
-function customNewBoxCreate (parent){
+// function customNewBoxCreate (parent){
 
-    let testDiv = document.createElement("div")
-    testDiv.classList.add("testDiv")
-    // add is a function   
-    parent.appendChild(testDiv)
-    return testDiv
-}
+//     let testDiv = document.createElement("div")
+//     testDiv.classList.add("testDiv")
+//     // add is a function   
+//     parent.appendChild(testDiv)
+//     return testDiv
+// }
 
-for (i=0; i<10; i++){
-    for (j=0; j<10; j++){
-        let returnDiv = customNewBoxCreate(document.getElementById("new-grid")) 
-        // assigning the test div variable to be the box
-        // box is inside of the new grid (doing this 100 times 10*10)
-        returnDiv.style.left = i * 40+"px"
-        // to specify pixels
-        returnDiv.style.top = j * 40+"px"
-        if(j%2===0){
-            returnDiv.style.background = "white"
-            returnDiv.textContent = "even"
-            returnDiv.style.color = "blue"
-        } 
-        else {
-            returnDiv.style.background = "purple"
-            returnDiv.textContent = "odd"
-            returnDiv.style.color = "black"
+// for (i=0; i<10; i++){
+//     for (j=0; j<10; j++){
+//         let returnDiv = customNewBoxCreate(document.getElementById("new-grid")) 
+//         // assigning the test div variable to be the box
+//         // box is inside of the new grid (doing this 100 times 10*10)
+//         returnDiv.style.left = i * 40+"px"
+//         // to specify pixels
+//         returnDiv.style.top = j * 40+"px"
+//         if(j%2===0){
+//             returnDiv.style.background = "white"
+//             returnDiv.textContent = "even"
+//             returnDiv.style.color = "blue"
+//         } 
+//         else {
+//             returnDiv.style.background = "purple"
+//             returnDiv.textContent = "odd"
+//             returnDiv.style.color = "black"
 
-        }
+//         }
         
        
-    }
-}
+//     }
+// }
 /* 2B: In the body of customNewBoxCreate create a new div element, that has the class testDiv. 
 /* 2C:Then append this new element to the parent variable within the function. 
 /* 2D:Finally, return</code> this new element */
@@ -282,8 +282,27 @@ for (i=0; i<10; i++){
  */
 
 /*************************************** */
-/* 3: GRID OF BOXES II */
+// /* 3: GRID OF BOXES II */
+// for (i=0; i<10; i++){
+//     for (j=0; j<10; j++){
+//         let returnDiv = customNewBoxCreate(document.getElementById("new-grid-three")) 
+//         returnDiv.style.left = i * 40+"px"
+//         returnDiv.style.top = j * 40+"px"
 
+//         if(i%3==0){
+//             returnDiv.style.background = "red"
+//             returnDiv.textContent = "0"
+//         }
+//         else if(i%3===1){
+//             returnDiv.style.background = "orange"
+//             returnDiv.textContent = "1"
+//         }
+//         else{
+//             returnDiv.style.background ="yellow"
+//             returnDiv.textContent = "2"
+//         }
+//     }
+// }
 /* 3A: Create ANOTHER nested for loop - in order to generate a new grid ... 
     USE the same customNewBoxCreate function..., the only difference is that the parent element 
     for each of these new divs is the element whose id is `new-grid-three`. */
@@ -299,7 +318,8 @@ for (i=0; i<10; i++){
 
 
 /***EXPLANATION::
- * 
+ * Sabine I'm a little confused because the colours are different from the example colors, but I followed your in-text code instruction! I hope that's okay : )
+ * Thank you so much for your help!
  * 
  */
 
