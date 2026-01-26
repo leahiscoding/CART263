@@ -151,9 +151,8 @@ add to the existing content an h2 element containing the text `TEST 123` */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element. */
 
-document.getElementsByTagName("img")[4]
-
-
+document.getElementsByTagName("p")[4]
+document.createElement.img ="one.png"
 
 
 /*************************************** */
@@ -161,9 +160,15 @@ document.getElementsByTagName("img")[4]
 then access all elements with class name inner-container and save to a variable called `innerContainers`. 
 Next, iterate over the colors array, and for each color: 
 assign the element from innerContainers variable with the same index 
-(i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...) 
-a background using that color.
-/***CODE */
+(i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...)*/
+
+let colors = ['red','blue','green','orange'];
+document.getElementsByClassName("inner-container") = 'innerContainers';
+
+for (let i = 0; i < colors.length; i++){
+
+}
+
 
 /*************************************** */
 /*** END PART TWO MODIFY */ 
@@ -174,7 +179,11 @@ a background using that color.
 /*************************************** */
 /* 1: NEW PARAGRAPHS */
 /* 1A: Access all paragraph elements, and store the result in a variable called: allPTagsThree */
+allPTagsThree = document.getElementsByTagNameAll ("p")
 /* 1B: Create a function:function customCreateElement(parent){ //body } */
+function customCreateElement (parent) {
+    document.
+}
 /* 1C:  In the body of customCreateElement create a new parargraph element*/
 /* 1D:  Set the text of this element to be : `using create Element`*/
 /* 1E:  Set the background of this paragraph element to be green */
