@@ -151,24 +151,32 @@ add to the existing content an h2 element containing the text `TEST 123` */
 /* 6: Select the fifth paragraph element on the page and add to the existing content 
 an img element that holds `one.png`, and add the class newStyle to said paragraph element. */
 
-document.getElementsByTagName("p")[4]
-document.createElement.img ="one.png"
+let fifth_p = document.getElementsByTagName("p")[4]
+fifth_p.classList.add("newStyle")
+fifth_p.innerHTML += `<img src="task-2-images/one.png">`
+// add in an image tag element and use a property src to say which image. `(we are using backtakes to use double quotes inside)< we need these things to make an actual element
+// img src = > image tag
+// ask Sabine
 
 
 /*************************************** */
-/* 7: Add the following array variable: let colors = ['red','blue','green','orange'];, 
-then access all elements with class name inner-container and save to a variable called `innerContainers`. 
-Next, iterate over the colors array, and for each color: 
-assign the element from innerContainers variable with the same index 
+/* 7: Add the following array variable: 
+1)let colors = ['red','blue','green','orange'];, 
+2)then access all elements with class name inner-container and save to a variable called `innerContainers`. 
+3)Next, iterate over the colors array, and for each color: 
+4)assign the element from innerContainers variable with the same index 
 (i.e. colors[0] should be allocated to the first innerContainers element, colors[1] to the second, etc ...)*/
 
 let colors = ['red','blue','green','orange'];
-document.getElementsByClassName("inner-container") = 'innerContainers';
+let innerContainers = document.getElementsByClassName("inner-container") 
 
-for (let i = 0; i < colors.length; i++){
-
+for(let i=0; i<innerContainers.length; i++){
+    innerContainers[i].style.background=colors[i]
+    //where am I using the colours
+    // you're accessing the elements and you're using the colour backgrounds as the elements
+    // style.color = text style.background = background of the container
 }
-
+// ask Sabine
 
 /*************************************** */
 /*** END PART TWO MODIFY */ 
@@ -179,16 +187,30 @@ for (let i = 0; i < colors.length; i++){
 /*************************************** */
 /* 1: NEW PARAGRAPHS */
 /* 1A: Access all paragraph elements, and store the result in a variable called: allPTagsThree */
-allPTagsThree = document.getElementsByTagNameAll ("p")
+let allPTagsThree = document.querySelectorAll ("p")
+// we can also use document getElementsByTagName
 /* 1B: Create a function:function customCreateElement(parent){ //body } */
 function customCreateElement (parent) {
-    document.
+    /* 1C:  In the body of customCreateElement create a new parargraph element*/
+    let newParagraph = document.createElement("p")
+    /* 1D:  Set the text of this element to be : `using create Element`*/
+    newParagraph.innerHTML = "using create Elememt"
+    /* 1E:  Set the background of this paragraph element to be green */
+    newParagraph.style.backgroundColor = "green"
+    /* 1F:  Set the color of the text in this paragraph element to be white */
+    newParagraph.style.color = "white"
+    /* 1G: Append this new element to the parent variable within the function. */
+    parent.appendChild(newParagraph)
+    // parent is already defined in the parameters 
+
+    // the function is never been called
 }
-/* 1C:  In the body of customCreateElement create a new parargraph element*/
-/* 1D:  Set the text of this element to be : `using create Element`*/
-/* 1E:  Set the background of this paragraph element to be green */
-/* 1F:  Set the color of the text in this paragraph element to be white */
-/* 1G: Append this new element to the parent variable within the function. */
+
+for (let i=0; i<allPTagsThree.length; i++){
+    customCreateElement(allPTagsThree[i])
+    // the parent is allPTagThree > parent is in the parameter and we're inserting the ptag inside of the parent paragraph
+}
+
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
@@ -202,6 +224,38 @@ passing the current allPTagsThree element as the parent with each iteration.*/
 /*************************************** */
 /* 2: GRID OF BOXES */
 /* 2A: Create another new function: function customNewBoxCreate(parent){ //body }*/
+function customNewBoxCreate (parent){
+
+    let testDiv = document.createElement("div")
+    testDiv.classList.add("testDiv")
+    // add is a function   
+    parent.appendChild(testDiv)
+    return testDiv
+}
+
+for (i=0; i<10; i++){
+    for (j=0; j<10; j++){
+        let returnDiv = customNewBoxCreate(document.getElementById("new-grid")) 
+        // assigning the test div variable to be the box
+        // box is inside of the new grid (doing this 100 times 10*10)
+        returnDiv.style.left = i * 40+"px"
+        // to specify pixels
+        returnDiv.style.top = j * 40+"px"
+        if(j%2===0){
+            returnDiv.style.background = "white"
+            returnDiv.textContent = "even"
+            returnDiv.style.color = "blue"
+        } 
+        else {
+            returnDiv.style.background = "purple"
+            returnDiv.textContent = "odd"
+            returnDiv.style.color = "black"
+
+        }
+        
+       
+    }
+}
 /* 2B: In the body of customNewBoxCreate create a new div element, that has the class testDiv. 
 /* 2C:Then append this new element to the parent variable within the function. 
 /* 2D:Finally, return</code> this new element */
