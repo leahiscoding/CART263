@@ -143,12 +143,16 @@ we can however do document.querySelector("content-container").style.background =
 /*************************************** */
 /* 3: Change the src element of the first image element on the page to be ...*/
 // ask sabine (solved)
-// //document.getElementsByTagName("img")[0].src = seven.png;
+// //document.getElementsByTagName("img")[0].src = "task-2-images/seven.png";
+// need to add task-2-images for a right path
+
 
 /*************************************** */
 /* 4: Select the third paragraph element on the page and 
 replace the content (within the paragraph) to be an h2 element which contains the text `TEST 123` */
 // document.getElementsByTagName("p")[2].innerHTML = "<h2> TEST 123 </h2>";
+// Sabine's example document.querySelectorAll("p")[2].innerHTML = "<h2> TEST 123 </h2>"
+// if you want the array you need to querySelectorAll 
 
 /*************************************** */
 /* 5: Select the fourth paragraph element on the page and 
@@ -166,6 +170,8 @@ an img element that holds `one.png`, and add the class newStyle to said paragrap
 // add in an image tag element and use a property src to say which image. `(we are using backtakes to use double quotes inside)< we need these things to make an actual element
 // img src = > image tag
 // ask Sabine (solved)
+
+/* Sabine's solution: document.querySelectorAll("p")[4].innerHTML += "<img src ='task-2-images/one.png' class = newStyle>" or `<img src = "task-2-images/one.png" class = newStyle>` 
 
 
 /*************************************** */
@@ -224,6 +230,19 @@ an img element that holds `one.png`, and add the class newStyle to said paragrap
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 
+/* Sabine's answer
+let allPTagsThree = document.querySelectorAll("p");
+function customCreateElement (parent){
+// body
+    let newElement = document.createElement ("p")
+    newElement.textContent ="using create Element"
+    newElement.style.backgroundColor = "green"
+    newElement.style.color = "white";
+    parent.appendChild(newElement)
+
+    // parent is ptag and we're appending new element into the ptag
+    
+    }
 
 /***EXPLANATION::
  * 
