@@ -33,7 +33,7 @@ console.log("we are a go!")
 
 /*************************************** */
 /* 2: only the first paragraph element */
-console.log (document.getElementsByTagName("p")[0]);
+// console.log (document.getElementsByTagName("p")[0]);
 /***OUTPUT: 
  * <p id="1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et
@@ -92,6 +92,7 @@ HTMLCollection Prototype
 /* 5B
 /* 5C // ask sabine (solved)*/ 
 // console.log(document.getElementsByTagName("h2"));
+// Alternative answer (console.log(document.querySelectorAll("h2"))
 // console.log(document.getElementsByTagName("h2").length);
 // console.log(document.getElementsByTagName("h2")[0].textContent);
 /***OUTPUT: 
@@ -133,6 +134,9 @@ HTMLCollection Prototype
  and change the background color ... of first and second ...*/
 //document.getElementsByClassName("content-container")[0].style.background = "lightpink";
 // document.getElementsByClassName("content-container")[1].style.background = "lightyellow";
+
+/* we cannot do document.querySelectorAll("content-container").style.background = cannot be done because we cannot change the style of the entire array
+we can however do document.querySelector("content-container").style.background = because this only selects a single query
 
 
 
