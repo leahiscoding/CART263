@@ -1,6 +1,9 @@
 window.onload = setup;
 function setup(){
     console.log("events!")
+    // let introBoolean = "inactive"
+    // let s1Boolean = "inactive"
+
 
     // to make introSection clickable 
     // should access specific variable
@@ -17,11 +20,27 @@ function setup(){
 
     function changeOpacityOfSection(e) {
         console.log (this);
+        if(this.getAttribute("custom-bool") === "inactive"){
         let classToAdd =`${this.id}-section-active`
         let classToAddP =`${this.id}-section-active`
         // built based on whom i clicking on i can access the correct class name
         this.classList.add(classToAdd)
         document.querySelector(`#${this.id} p`).classList.add(classToAddP)
+
+        this.setAttribute ("custom-bool", "active")
+        console.log (this);
+
+        }
+        else {
+            let classToAdd = `${this.id}-section-active`
+            let classToAddP = `${this.id}-section-active`
+            this.classList.remove (classToAdd);
+            document.querySelector(`#${this.id} p`).
+            classList.remove (classToAddP)
+
+            this.setAttribute("custom-bool", "inactive")
+            console.log(this)
+        }
     }
 
     function mouseIntroHandler (e){
