@@ -17,7 +17,11 @@ function setup(){
 
     function changeOpacityOfSection(e) {
         console.log (this);
-        // 
+        let classToAdd =`${this.id}-section-active`
+        let classToAddP =`${this.id}-section-active`
+        // built based on whom i clicking on i can access the correct class name
+        this.classList.add(classToAdd)
+        document.querySelector(`#${this.id} p`).classList.add(classToAddP)
     }
 
     function mouseIntroHandler (e){
