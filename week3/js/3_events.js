@@ -5,8 +5,20 @@ function setup(){
     // to make introSection clickable 
     // should access specific variable
 
-    let introSection = document.getElementById("intro")
-    introSection.addEventListener("click", mouseIntroHandler)
+    // let introSection = document.getElementById("intro");
+    // introSection.addEventListener("click", mouseIntroHandler);
+
+    let allSections = document.querySelectorAll (".mouseclickactivesection");
+    // . > because it's a class
+    for (let element of allSections){
+        element.addEventListener("click", changeOpacityOfSection)
+        // change opacity of section is the callback
+    }
+
+    function changeOpacityOfSection(e) {
+        console.log (this);
+        // 
+    }
 
     function mouseIntroHandler (e){
         // e is an argument to the function. when the function is called, it's passed as a function (???)
@@ -26,11 +38,11 @@ function setup(){
         // depending on what is happening, you'll be able to change (?)
         // referring to who had the eventListener attached to it
         
-        this.style.background = `rgba(214,110,239,0.5)`
+        this.style.background = `rgba(214,110,239,0.5)`;
         // this > introSection / `rgbalpha` > standard css way of listing the colour
         // it only runs once
         
-        console.log(document.querySelector(`#${this.id}`))
+        console.log(document.querySelector(`#${this.id}`));
         
         // "#"+this.id+"p"
         // // concatenate (chain things)
