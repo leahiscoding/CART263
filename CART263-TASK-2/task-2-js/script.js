@@ -33,9 +33,14 @@ console.log("we are a go!")
 
 /*************************************** */
 /* 2: only the first paragraph element */
-// console.log (document.getElementsByTagName("p")[0]);
+console.log (document.getElementsByTagName("p")[0]);
 /***OUTPUT: 
- * <p id="1">…</p> 
+ * <p id="1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias perspiciatis blanditiis, et
+                laborum praesentium earum. Enim facere, quia commodi voluptate, quis asperiores, pariatur ducimus
+                officiis non
+                quasi officia sit veniam!
+            </p> 
 
  */
 
