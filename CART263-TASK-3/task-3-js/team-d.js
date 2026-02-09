@@ -30,6 +30,7 @@ function setup_D() {
   function aniB(parentCanvas) {
       console.log("in ani-B -teamD");
     
+     
   }
   /****************ANI C ************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN C INSIDE HERE */

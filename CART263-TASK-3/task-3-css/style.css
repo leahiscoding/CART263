@@ -119,6 +119,112 @@ body{
 
 }
 
+ /* #bubbleButton{
+    padding: 5px;
+    background-color:rgb(158, 153, 163);
+    width:max-content;
+    margin-left:1vw;
+    margin-top: 10px;
+    border-radius: 2px;
+    box-shadow: 2px 2px;
+ }
+
+.TEAM_E_bubble{
+  width:max-content;
+  background-color: rgb(30, 168, 223);
+  color:aliceblue;
+  padding: 12px 16px;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+} */
+
+.TEAM_E_Image{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.TEAM_E_box{
+  width:max-content;
+  background-color: rgb(15, 119, 246);
+  color:white;
+  padding: 12px 16px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  max-width: calc(100% - 20px);
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-sizing:border-box;
+  cursor:pointer;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.TEAM_E_circle {
+  border-radius: 10px;
+  background-color: rgb(241, 199, 72);
+  position: absolute;
+  transform: transform 0.8s ease;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ripple {
+  animation: ripple 0.3s ease;
+}
+
+.TEAM_E_circle {
+  border-radius: 10px;
+  background-color: rgb(241, 199, 72);
+  position: absolute;
+  transform: transform 0.8s ease;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ripple {
+  animation: ripple 0.3s ease;
+}
+
+.TEAM_E_emoji {
+  user-select: none;
+  pointer-events: none;
+}
+.TEAM_E_box:hover{
+  background-color: rgb(255, 41, 155);
+}
+
 .TEAM_H_circle{
   border-radius: 10px;;
   background-color: rgb(223, 30, 117);
