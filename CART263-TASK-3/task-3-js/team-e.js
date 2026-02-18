@@ -137,8 +137,7 @@ function setup_E() {
       for (let position = 0; position < 15; position++) {
         clownArray[position].image.style.top =
           parseFloat(clownArray[position].image.style.top) +
-          clownArray[position].speed +
-          "px";
+          clownArray[position].speed +"px";
         if (parseFloat(clownArray[position].image.style.top) > 300) {
           // resetting the raindrop to the top
           console.log(position);
