@@ -1,0 +1,43 @@
+main{
+    width: 97vw;/* viewport width*/
+    height: 97vh;/* viewport height*/
+    background-color: white;
+    border-color: hsl(0, 0%, 71%);
+    border-width: 1px; /* stroke width*/
+    border-style: solid;
+    margin: 0 auto;
+}
+
+nav{
+    width: 100%; /* 100% of the main if I did vw then it's independent of the parent container*/
+    height: 17vh;
+    background-color: aliceblue;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#content{
+    width:100%;
+    background-color: rgb(202, 202, 202); /*grows with the content*/
+}
+
+ul{
+    margin:0;
+    padding:0;
+    list-style-type: none; /* do not want bullet points*/
+    display: flex; /* allows */
+    flex-direction: row;
+    width: 85%;
+    margin-left: 7%;
+    background-color: orange;
+    align-items: center;
+    position:absolute;
+    bottom: 0;
+}
+
+li{
+    width: 16%;
+    background-color: blueviolet;
+    margin-left: 1%;
+}
