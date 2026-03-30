@@ -133,17 +133,22 @@ for(let singleSquare of allSquareShapes){
 }
 
 
-console.log(document.querySelectorAll(".square_shapes").children)
+console.log(document.querySelectorAll(".square_shape").children)
 
 //more complex pattern
 
 //get the group
 for(let singleSquare of allSquareShapes){
+    //console.log("HEREE")
+    console.log(singleSquare)
     // get children
     if(singleSquare.querySelector("p span")!==null){
+        console.log(singleSquare.querySelector("p span"))
         singleSquare.querySelector("p span").textContent+="Other Content"
     }
 }
+
+
 
 console.log(document.querySelectorAll("span"))
 
@@ -239,3 +244,4 @@ console.log(document.querySelector("#three"));
 let parentElementToRemove = document.querySelector(".wrapper_flex_box");
 let toRemove = document.getElementById("six");
 parentElementToRemove.removeChild(toRemove);
+
