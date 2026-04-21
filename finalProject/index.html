@@ -6,7 +6,6 @@
     <title> an einem seltsamen Ort</title>
     <link rel="stylesheet" href="css/styles.css">
 
-
     <!-- Require the peer dependencies of face-detection.
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
@@ -53,7 +52,7 @@
             <button class="startButton">Start</button>
             <div class="shape accent"></div>
         </section>
-
+  
         <section id = "mainPage" style = "display: none;" >
             <h1 class="title b">
                 <span>Hallo!</span>
@@ -68,22 +67,32 @@
 
 
             <div class="buttonRow">
-                <button id = "one" class="squareButton" type="button" >
+                <button id = "one" class="squareButton" type="button" style = "display: block;" >
                     <span class ="sr-only">
+                        <div class ="pageOne" style = "display:none">
+                            
+                        </div>
                     </span>
                 </button>
 
-                <button id="two" class="squareButton" type="button" >
+                
+
+                <button id="two" class="squareButton" type="button" style = "display: block">
                     <span class ="sr-only">
+                        <div class = "pageTwo" style = "display:none">
+
+                        </div>
                     </span>
                 </button>
 
-                <button id="three" class="squareButton" type="button" >
+                <button id="three" class="squareButton" type="button" style = "display:block" >
                     <span class ="sr-only">
+                        <div class ="pageThree" style = "display:none">
+
+                        </div>
                     </span>
                 </button>
-
-        
+            </div>
         </section>
     </main>
 
@@ -93,7 +102,7 @@
 
 
  <script src="js/script.js"></script>
- <script src="js/tensorFlow.js"></script>
+   <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    <script src="js/sketch.js"></script>
 </html>
-
 
