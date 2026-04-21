@@ -73,7 +73,7 @@ function addAPoint(event) {
     }
     //the click is now the drawing mode :)
     else {
-      // TO DO
+      createNewDrawingPoint(event.clientX, event.clientY);
     }
   });
 
@@ -128,7 +128,24 @@ function createNewDrawingPoint(mouseX, mouseY) {
      and change their current background color to the selected color.
   */
   let colorButtons= document.querySelectorAll(".color-button");
+  for (let i = 0; i < colorButtons.length; i++ ){
+    //console.log (colorButtons)
+
+    let colorButton = colorButtons[i]
+    // the current button in the cycle
+    colorButton.addEventListener ("click", clickedColorButton, event)
+    // this passes the parameter
+  }
    
+  function clickedColorButton (event)
+  {
+
+    console.log(event.srcElement.id)
+    let selectedColor = (event.srcElement.id)
+    currentPresets.color = selectedColor
+
+
+  }
    /*B:: STROKE BUTTON ********************************************/
   /* TO DO: 
   *  1: Access the stroke button and assign an event listener to listen for the click event
@@ -138,7 +155,26 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *  3: Finally access all the current points drawn (hint: they all have the class name `point`)
      and change their current stroke value to the updated value.
   */
-   let strokeButton = document.querySelector("#change-stroke-button");
+  let strokeButton = document.querySelector("#change-stroke-button");
+  strokeButton.addEventListener("click", clickedStrokeButton, event)
+   function clickedStrokeButton(event)
+   {
+    if (currentPresets.stroke >= 10)
+    {
+      currentPresets.stroke = 0;
+    }
+    currentPresets.stroke++;
+    
+   // this will give us either the div tag or the p tag
+      let el = event.srcElement.children[0];
+      // if it is undefined, then you selected the p tag
+      if (el == undefined){
+        el = event.srcElement
+      }
+    console.log(el);
+    el.innerHTML = currentPresets.stroke;
+   }
+  
 
   /*C:: SHAPE BUTTON ********************************************/
   /* TO DO: 
@@ -153,6 +189,39 @@ function createNewDrawingPoint(mouseX, mouseY) {
   */
      let shapeButton = document.querySelector("#change-shape-button");
 
+     shapeButton.addEventListener("click",clickedShapeButton,event)
+     // we're adding event because we need an argument (and parameter in the actual function itself)
+
+     function clickedShapeButton (event)
+     {
+      // this will give us either the div tag or the p tag
+      let el = event.srcElement.children[0];
+      // if it is undefined, then you selected the p tag
+      if (el == undefined){
+        el = event.srcElement
+      }
+      console.log (el)
+
+      if (el.innerHTML == "square"){
+        el.innerHTML = "circle"
+      }
+      else{
+        el.innerHTML = "square"
+      }
+      currentPresets.shape = el.innerHTML
+      if (currentPresets.shape == "square"){
+        currentPresets.borderRadius = "0px"
+      }
+      else{
+        currentPresets.borderRadius = "5px"
+      }
+      currentPresets.borderRadius 
+     }
+
+
+
+
+
 
    /*D:: CHANGE DRAWING MODE ********************************************/
   /* TO DO: 
@@ -161,12 +230,29 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *   currentPresets.drawingMode - and check if it is "mouse-move" or "mouse-click"  
   *   - if it is "mouse-move": set the currentPresets.drawingMode  to "mouse-click" and the opposite (mouse-click to mouse-move)
   *   Update the value in the  shape button as well
-  *  3: FILL IN THE CONDITION IN THE GIVEN EVENT listener for clicking the mouse and add the codeto add a point if the drawing mode is mouse-click
+  *  3: FILL IN THE CONDITION IN THE GIVEN EVENT listener for clicking the mouse and add the code to add a point if the drawing mode is mouse-click
   *  OR 
   *   FILL IN THE CONDITION IN THE GIVEN EVENT listener for clicking the mouse and add the code to  toggle the drawing mode:
   *   turn drawing off it is on or on if it is off (when the drawing mode is mouse-move)
   */
   let modeButton = document.querySelector("#change-mode-button");
+
+  modeButton.addEventListener("click",changeModeButton,event)
+  function changeModeButton(event)
+  {
+    if (currentPresets.drawingMode == "mouse-move") {
+      currentPresets.drawingMode = "mouse-click"
+    } 
+    else{
+      currentPresets.drawingMode = "mouse-move"
+    }
+    let el = event.srcElement.children[0];
+      // if it is undefined, then you selected the p tag
+      if (el == undefined){
+        el = event.srcElement
+      }
+      el.innerHTML = currentPresets.drawingMode
+  }
 
    /*E:: OPACITY BUTTON ********************************************/
   /* TO DO: 
@@ -178,6 +264,13 @@ function createNewDrawingPoint(mouseX, mouseY) {
      and change their current opacity value to the updated value.
   */
      let opacityButton = document.querySelector("#change-opacity-button");
+     opacityButton.addEventListener("click",changeOpacityButton,event)
+
+     function changeOpacityButton(event){
+      if (currentPresets.opacity){
+
+      }
+     }
 
   /*F:: ERASE BUTTON ********************************************/
   /* TO DO: 
