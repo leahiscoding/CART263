@@ -59,40 +59,35 @@
                 <span>Wählen Sie eine Option</span>
 
             </h1>
+               <!-- Home is visible on the main menu only. -->
                <button class="home F" type="button" aria-label="Home">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
                 </svg>
                 </button>
+                <!-- Back reuses the same corner position, but stays hidden until a detail page is open. -->
+                <button class="backButton" type="button" aria-label="Back" style="display: none;">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                    </svg>
+                </button>
 
 
             <div class="buttonRow">
-                <button id = "one" class="squareButton" type="button" style = "display: block;" >
-                    <span class ="sr-only">
-                        <div class ="pageOne" style = "display:none">
-                            
-                        </div>
-                    </span>
-                </button>
+                <button id = "one" class="squareButton" type="button" style = "display: block;" ></button>
 
-                
+                <button id="two" class="squareButton" type="button" style = "display: block"></button>
 
-                <button id="two" class="squareButton" type="button" style = "display: block">
-                    <span class ="sr-only">
-                        <div class = "pageTwo" style = "display:none">
-
-                        </div>
-                    </span>
-                </button>
-
-                <button id="three" class="squareButton" type="button" style = "display:block" >
-                    <span class ="sr-only">
-                        <div class ="pageThree" style = "display:none">
-
-                        </div>
-                    </span>
-                </button>
+                <button id="three" class="squareButton" type="button" style = "display:block" ></button>
             </div>
+
+            <!-- These panels replace the main menu when one of the three buttons is clicked. -->
+            <div class="pageOne detailPage" style="display: none;">
+                Page one</div>
+            <div class="pageTwo detailPage" style="display: none;">
+                Page two</div>
+            <div class="pageThree detailPage" style="display: none;">
+                Page three</div>
         </section>
     </main>
 
@@ -105,4 +100,3 @@
    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
     <script src="js/sketch.js"></script>
 </html>
-

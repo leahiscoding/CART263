@@ -254,3 +254,33 @@ body{
     height: 100%;
     display: block;
 }
+
+/* Back uses the same corner placement as home so they can swap cleanly. */
+.backButton{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 6.521%;
+    height: 12.25%;
+    z-index: 5;
+    background: transparent;
+}
+
+.backButton svg{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Shared panel styling for the three detail screens. */
+.detailPage{
+    position: absolute;
+    inset: 20% 6% 8%;
+    display: none;
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--k);
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: 700;
+}
