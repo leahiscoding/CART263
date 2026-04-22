@@ -2,15 +2,38 @@
 
 let faceMesh;
 let handPose;
+let classifier;
 let faces = [];
- let hands = [];
+let hands = [];
 let connections = [];
+let words = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "up",
+  "down",
+  "left",
+  "right",
+  "go",
+  "stop",
+  "yes",
+  "no",
+];
 let video;
 let canvas;
 let pageOneSection;
 let pageTwoSection;
+let pageThreeSection;
 let currentCanvasParent = "";
- const density = " .:-=+*#%@";
+let predictedWord = "";
+const density = " .:-=+*#%@";
 
 let options = {
     maxFaces: 1,
@@ -22,6 +45,8 @@ function preload(){
     // load facemesh model
     faceMesh = ml5.faceMesh(options);
     handPose = ml5.handPose();
+    let options = { probabilityThreshold: 0.8 };
+    classifier = ml5.soundClassifier("SpeechCommands18w", options);
 }
 
 function setup(){
@@ -44,6 +69,10 @@ function gotFaces(results){
 
 function gotHands(results){
     hands = results;
+}
+
+function gotResults(result){
+    console.log(results);
 }
 
 function updateAsciiBackground(){
