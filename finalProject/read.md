@@ -7,5 +7,8 @@ https://audio.com/mark-berwick
 SVG:
 https://flowbite.com/icons/
 
-Darkmode
-:https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp
+Darkmode:
+https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp
+
+FaceMesh:
+https://docs.ml5js.org/#/reference/facemesh?id=methods
