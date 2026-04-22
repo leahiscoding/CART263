@@ -22,12 +22,24 @@ function setup(){
     video.size(640, 480);
     video.hide();
     faceMesh.detectStart(video, gotFaces);
-
-  
 }
 
 function gotFaces(results){
     faces = results;
+}
+
+function drawPerlinGrid(){
+    const cellSize = 24;
+    if (frameCount % 3 == 0)
+    noStroke();
+    background (0)
+    for (let x = 0; x <= width; x += random(cellSize, cellSize+25)) {
+        for (let y = 0; y <= height; y += random(cellSize, cellSize +25)) {
+            const n = noise(x * 0.005, y * 0.005, frameCount * 0.01);
+            fill(n * random(100,255), n * random(100,255), n * (random(100,255)));
+            circle(x, y, 4);
+        }
+    }
 }
 
 function draw(){
@@ -36,7 +48,9 @@ function draw(){
         clear();
         return;
     }
+
     image(video, 0, 0, width, height);
+    drawPerlinGrid();
 
     for (let i = 0; i < faces.length; i ++) {
         let face = faces[i];
@@ -44,7 +58,7 @@ function draw(){
         if (!face.keypoints) {
             continue;
         }
-        background(random(0,10));
+
         fill(random(100,255), random(100,255), random(100,255), random(175,255));
         noStroke();
 
