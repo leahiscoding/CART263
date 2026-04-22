@@ -2,8 +2,10 @@
 <html lang = "en">
 <head>
     <meta charset = "UTF-8">
+    <!-- mobile responsive -->
     <meta name ="viewport" content="width=device-width, initial-scale = 1.0">
     <title> an einem seltsamen Ort</title>
+    <!-- link to CSS-->
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Require the peer dependencies of face-detection.
@@ -20,59 +22,63 @@
 <!--ENTRY SCREEN -->
 
    
-
+    <!-- main container for all content.-->
     <main class="poster">
-
+        <!-- play button -->
          <button id="playButton" class="shape D" type="button" aria-label="Play audio"> 
                     <!-- source: https://www.w3schools.com/graphics/tryit.asp?filename=trysvg_polygon-->
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" clip-rule="evenodd"/>
                 </svg>
+                    <!-- audio element—id connects to script.js-->
                     <div class="audio">
                     <audio id="techno" preload="auto" src="asset/audio/TechnoB.mp3"></audio>
                     </div>
 
             </button>
+<!-- Start page -->
         <section id = "startPage">
             <div class = "shape A"></div>
             <div class="shape B"></div>
             <div class="shape C"></div>
            
-
+            <!-- title -->
             <h1 class="title a">
                 <span>Willkommen</span>
                 <span>an einem seltsamen Ort</span>
             </h1>
-
+            <!-- caption -->
             <p class="caption">
                 <span>Bitte schalten Sie den Ton ein</span>
                 <span>für ein besseres Erlebnis</span>
             </p>
-
+            <!-- startButton : when clicked, switchToMain ()works -->
             <button class="startButton">Start</button>
+            
             <div class="shape accent"></div>
         </section>
   
+<!-- Main page — initially hidden -->
         <section id = "mainPage" style = "display: none;" >
             <h1 class="title b">
                 <span>Hallo!</span>
                 <span>Wählen Sie eine Option</span>
 
             </h1>
-               <!-- Home is visible on the main menu only. -->
+               <!-- Home is visible only on the main menu. -->
                <button class="home F" type="button" aria-label="Home">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z" clip-rule="evenodd"/>
                 </svg>
                 </button>
-                <!-- Back reuses the same corner position, but stays hidden until a detail page is open. -->
+                <!-- when clicked, switchToStart() runs -->
                 <button class="backButton" type="button" aria-label="Back" style="display: none;">
                     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
                     </svg>
                 </button>
 
-
+    <!-- Main buttons -->
             <div class="buttonRow">
                 <button id = "one" class="squareButton" type="button" style = "display: block;" ></button>
 
@@ -83,6 +89,7 @@
 
             <!-- These panels replace the main menu when one of the three buttons is clicked. -->
             <div class="pageOne detailPage" style="display: none;">
+                <span class = "title">Hallo!</span>
                 <div id="pageOneCanvas" class="sketchMount"></div>
             </div>
             <div class="pageTwo detailPage" style="display: none;">
@@ -102,5 +109,5 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
  <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
  <script src="js/script.js"></script>
- <script src="js/facemesh.js"></script>
+ <script src="js/faceHandDetection.js"></script>
 </html>

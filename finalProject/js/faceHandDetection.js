@@ -3,14 +3,14 @@
 let faceMesh;
 let handPose;
 let faces = [];
-let hands = [];
+ let hands = [];
 let connections = [];
 let video;
 let canvas;
 let pageOneSection;
 let pageTwoSection;
 let currentCanvasParent = "";
-const density = " .:-=+*#%@";
+ const density = " .:-=+*#%@";
 
 let options = {
     maxFaces: 1,
@@ -132,6 +132,7 @@ function drawHandpose(){
 
 function draw(){
     if (pageOneSection && pageOneSection.style.display !== "none") {
+        console.log("hello")
         showCanvasIn("pageOneCanvas");
         image(video, 0, 0, width, height);
         drawPerlinGrid();

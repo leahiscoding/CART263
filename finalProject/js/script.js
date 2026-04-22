@@ -13,14 +13,30 @@ let buttonRow = document.querySelector(".buttonRow")
 let pageOne = document.querySelector(".pageOne")
 let pageTwo = document.querySelector(".pageTwo")
 let pageThree = document.querySelector(".pageThree")
+let songArray = [
+    "TechnoA.mp3",
+    "TechnoB.mp3"
+]
+let songIndex = 0
 
-audioPlayer.load()
 
-async function playAudio(){
+// when you're using an array you're always accessing by the number 
+function chooseSong(){
+    songIndex = Math.floor(Math.random()*songArray.length)
+    // selected randomly number and we will choose
+    audioPlayer.src = `asset/audio/${songArray[songIndex]}`
+}
+
+
+//audioPlayer.load()
+
+function playAudio(){
+    chooseSong()
     if(audioPlayer.paused){
-      audioPlayer.volume = 0.1
-      audioPlayer.muted = false;
-        await audioPlayer.play()
+    console.log(audioPlayer)
+    audioPlayer.volume = 0.1
+    audioPlayer.muted = false;
+    audioPlayer.play()
     } else {
         stopAudio()
     }
@@ -80,7 +96,6 @@ function switchToThree (){
 }
 
 // I had a bit of an issue nesting pages—I got help with gen AI to troubleshoot my original code.
-// ask sabine about this part
 function hideDetailPages(){
     pageOne.style.display = "none"
     pageTwo.style.display = "none"
