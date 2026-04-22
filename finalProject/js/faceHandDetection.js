@@ -6,26 +6,6 @@ let classifier;
 let faces = [];
 let hands = [];
 let connections = [];
-let words = [
-  "zero",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
-  "up",
-  "down",
-  "left",
-  "right",
-  "go",
-  "stop",
-  "yes",
-  "no",
-];
 let video;
 let canvas;
 let pageOneSection;
@@ -41,19 +21,34 @@ let options = {
     flipped: false
 };
 
+let words = [
+  "zero",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+];
+
 function preload(){
     // load facemesh model
     faceMesh = ml5.faceMesh(options);
     handPose = ml5.handPose();
-    let options = { probabilityThreshold: 0.8 };
-    classifier = ml5.soundClassifier("SpeechCommands18w", options);
+    let optionsVoice = { probabilityThreshold: 0.8 };
+    classifier = ml5.soundClassifier("SpeechCommands18w", optionsVoice);
 }
 
 function setup(){
     pageOneSection = document.querySelector(".pageOne");
     pageTwoSection = document.querySelector(".pageTwo");
+    pageThreeSection = document.querySelector(".pageThree")
     canvas = createCanvas(640, 480);
     canvas.parent("pageOneCanvas");
+    classifier.classifyStart(gotResults);
     currentCanvasParent = "pageOneCanvas";
     video = createCapture(VIDEO);
     video.size(640, 480);
@@ -71,8 +66,9 @@ function gotHands(results){
     hands = results;
 }
 
-function gotResults(result){
-    console.log(results);
+function gotResults(results){
+   // console.log(results);
+    predictedWord = results[0].label;
 }
 
 function updateAsciiBackground(){
@@ -159,6 +155,12 @@ function drawHandpose(){
     }
 }
 
+function voiceReaction(){
+    if (predictedWord !== "" ){
+        console.log(predictedWord)
+    }
+}
+
 function draw(){
     if (pageOneSection && pageOneSection.style.display !== "none") {
         console.log("hello")
@@ -190,7 +192,18 @@ function draw(){
         return;
     }
 
+    
+
+    if(pageThreeSection && pageThreeSection.style.display !== "none"){
+        showCanvasIn("pageThreeCanvas");
+        //console.log(pageThreeSection);
+        voiceReaction();
+        return;
+    }
+
     if (canvas) {
         clear();
     }
+
 }
+

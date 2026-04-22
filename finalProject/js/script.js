@@ -92,6 +92,7 @@ function switchToTwo(){
 function switchToThree (){
     if (mainPage.style.display == "block"){
         showDetailPage(pageThree)
+        console.log("switchToThree")
     }
 }
 
