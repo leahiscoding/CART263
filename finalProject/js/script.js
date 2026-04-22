@@ -13,15 +13,6 @@ let buttonRow = document.querySelector(".buttonRow")
 let pageOne = document.querySelector(".pageOne")
 let pageTwo = document.querySelector(".pageTwo")
 let pageThree = document.querySelector(".pageThree")
-let currentSketchMode = "none"
-
-window.setSketchMode = function(mode){
-    currentSketchMode = mode
-    window.currentSketchMode = mode
-}
-
-window.setSketchMode(currentSketchMode)
-
 
 audioPlayer.load()
 
@@ -61,7 +52,6 @@ function switchToMain(){
 function switchToStart(){
     if(mainPage.style.display == "block"){
         hideDetailPages()
-        window.setSketchMode("none")
         backButton.style.display = "none"
         home.style.display = "block"
         titleMain.style.display = "block"
@@ -74,21 +64,18 @@ function switchToStart(){
 function switchToOne(){
     if(mainPage.style.display == "block"){
         showDetailPage(pageOne)
-        window.setSketchMode("facemesh")
     }
 }
 
 function switchToTwo(){
     if (mainPage.style.display == "block"){
         showDetailPage(pageTwo)
-        window.setSketchMode("two")
     }
 }
 
 function switchToThree (){
     if (mainPage.style.display == "block"){
         showDetailPage(pageThree)
-        window.setSketchMode("three")
     }
 }
 
@@ -113,7 +100,6 @@ function showDetailPage(page){
 function showMainMenu(){
     // Returning to the menu restores the title, colored buttons, and home icon.
     hideDetailPages()
-    window.setSketchMode("none")
     titleMain.style.display = "block"
     buttonRow.style.display = "flex"
     home.style.display = "block"
