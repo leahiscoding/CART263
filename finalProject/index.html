@@ -81,7 +81,6 @@
     <!-- Main buttons -->
             <div class="buttonRow">
                 <button id = "one" class="squareButton" type="button" style = "display: block;" ></button>
-
                 <button id="two" class="squareButton" type="button" style = "display: block"></button>
 
                 <button id="three" class="squareButton" type="button" style = "display:block" ></button>
@@ -89,14 +88,16 @@
 
             <!-- These panels replace the main menu when one of the three buttons is clicked. -->
             <div class="pageOne detailPage" style="display: none;">
-                <span class = "title">Hallo!</span>
                 <div id="pageOneCanvas" class="sketchMount"></div>
+                    <span class = "pageText">Face-Mesh-Modell</span>
             </div>
             <div class="pageTwo detailPage" style="display: none;">
                 <div id="pageTwoCanvas" class="sketchMount"></div>
+                    <span class="pageText">Handpose-Modell</span>
             </div>
             <div class="pageThree detailPage" style="display: none;">
                   <div id="pageThreeCanvas" class="sketchMount"></div>
+                  <span class ="pageText">Spracherkennungs-modell</span>
             </div>
         </section>
     </main>

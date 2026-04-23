@@ -16,6 +16,7 @@ function setup () {
         borderRadius: "0px",
         isDrawing: true,
         drawingMode: "mouse-move",
+        opacity: 1.0
       };
 
  /* GIVEN * : An object containing the current settings for text 
@@ -263,14 +264,29 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *  3: Finally access all the current points drawn (hint: they all have the class name `point`)
      and change their current opacity value to the updated value.
   */
+
      let opacityButton = document.querySelector("#change-opacity-button");
-     opacityButton.addEventListener("click",changeOpacityButton,event)
+    opacityButton.addEventListener("click",changeOpacityButton,event)
 
-     function changeOpacityButton(event){
-      if (currentPresets.opacity){
-
+      function changeOpacityButton(event){
+    // question about this part
+      if (currentPresets.opacity <= 1.0 && currentPresets.opacity> 0.1){
+        console.log(currentPresets.opacity)
+        currentPresets.opacity = Math.round(currentPresets.opacity - 0.1).toFixed(1)
       }
-     }
+      else{
+       currentPresets.opacity = 1.0
+      }
+          // this will give us either the div tag or the p tag
+      let el = event.srcElement.children[0];
+      // if it is undefined, then you selected the p tag
+      if (el == undefined){
+        el = event.srcElement
+      }
+
+      console.log(el);
+      el.innerHTML = currentPresets.opacity;
+      }
 
   /*F:: ERASE BUTTON ********************************************/
   /* TO DO: 
@@ -278,6 +294,9 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *  2: Write a callback function - that when the erase button is clicked, 
   *  remove all points (hint: they all have the class name `point`) from the drawing div
   */
+ console.log(event.srcElement)
+
+  
  /**************************TEXT INPUT ********************************/
   /*A:: THE EVENT LISTENER ********************************************/
   /* TO DO: 

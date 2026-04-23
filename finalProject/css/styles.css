@@ -293,6 +293,22 @@ body{
     justify-content: center;
 }
 
+.pageText {
+  position: fixed;          /* stays between Play and Home */
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  pointer-events: none;
+  color: var(--k);
+  font-family: inherit;     /* same family as Hallo */
+  font-weight: 700;
+  font-size: min(3.97vw, 6.11vh);
+  line-height: 1;
+  text-align: center;
+  letter-spacing: max(-0.4vw, -0.61vh);
+}
+
 .sketchMount canvas{
     display: block;
 }
