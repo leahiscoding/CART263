@@ -65,8 +65,8 @@ class Ring {
     // draw the ring
     drawCircle() {
         noFill();
-        strokeWeight (random(0,5));
-        stroke (random(100),random(100),random(100),random(100));
+        strokeWeight (random(0,2));
+        stroke (random(100),random(100),random(100),random(200));
         circle(this.x, this.y, this.radius);
     }
 }
@@ -270,9 +270,9 @@ function voiceReaction(){
     if (predictedWord !== "" ){
         //console.log(predictedWord);
         // and if the frame count is 30 (every 30 frames) > add a new ring
-        if (frameCount % 30 === 0){
+        if (frameCount % 100 === 0){
             // create a ring at a random position
-            rings.push(new Ring(random(0, width), random(0, height), random(-1, 1)));
+            rings.push(new Ring(random(0, width), random(0, height), random(-5, 1)));
         }
 
         // go through every ring
