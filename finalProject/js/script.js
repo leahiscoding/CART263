@@ -15,7 +15,11 @@ let pageTwo = document.querySelector(".pageTwo")
 let pageThree = document.querySelector(".pageThree")
 let songArray = [
     "TechnoA.mp3",
-    "TechnoB.mp3"
+    "TechnoB.mp3",
+    "TechnoC.mp3",
+    "TechnoD.mp3",
+    "TechnoE.mp3",
+    "TechnoF.mp3"
 ]
 let songIndex = 0
 
@@ -34,7 +38,7 @@ function playAudio(){
     chooseSong()
     if(audioPlayer.paused){
     console.log(audioPlayer)
-    audioPlayer.volume = 0.1
+    audioPlayer.volume = 0.3
     audioPlayer.muted = false;
     audioPlayer.play()
     } else {

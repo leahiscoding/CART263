@@ -6,6 +6,7 @@ let classifier;
 let faces = [];
 let hands = [];
 let connections = [];
+let rings = [];
 let video;
 let canvas;
 let pageOneSection;
@@ -33,6 +34,25 @@ let words = [
   "eight",
   "nine",
 ];
+class Ring {
+    constructor(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speed = random(-10,10)
+    }
+
+    updateCircle() {
+        this.radius += this.speed
+    }
+
+    drawCircle() {
+        noFill();
+        strokeWeight (random(0,5));
+        stroke (random(100),random(100),random(100),random(100));
+        circle(this.x, this.y, this.radius);
+    }
+}
 
 function preload(){
     // load facemesh model
@@ -156,10 +176,21 @@ function drawHandpose(){
 }
 
 function voiceReaction(){
+
+    // ring source: https://khamilton.co.uk/posts/infinite-circle-ripple
     if (predictedWord !== "" ){
-        console.log(predictedWord)
+        console.log(predictedWord);
+        if (frameCount % 30 === 0){
+            rings.push(new Ring(random(0, width), random(0, height), random(-1, 1)));
+        }
+
+        rings.forEach((ring) => {
+            ring.updateCircle();
+            ring.drawCircle();
+        });
     }
 }
+
 
 function draw(){
     if (pageOneSection && pageOneSection.style.display !== "none") {
@@ -206,4 +237,3 @@ function draw(){
     }
 
 }
-
