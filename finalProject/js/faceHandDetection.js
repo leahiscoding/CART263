@@ -48,10 +48,13 @@ let words = [
 ];
 
 // class for each ring object
+// template (saying that if I wanted to have a ring object it will have these properties)
 class Ring {
     // runs whenever creating a new ring with a new ring
+    // we need a constructor because that's what actually makes you a ring
     constructor(x, y, radius) {
         // store this ring's variables
+        // passes the values and assign them
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -272,6 +275,7 @@ function voiceReaction(){
         // and if the frame count is 30 (every 30 frames) > add a new ring
         if (frameCount % 100 === 0){
             // create a ring at a random position
+            // rings is an array
             rings.push(new Ring(random(0, width), random(0, height), random(-5, 1)));
         }
 
