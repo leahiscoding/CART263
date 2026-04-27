@@ -270,9 +270,9 @@ function createNewDrawingPoint(mouseX, mouseY) {
 
       function changeOpacityButton(event){
     // question about this part
-      if (currentPresets.opacity <= 1.0 && currentPresets.opacity> 0.1){
+      if (currentPresets.opacity>= 0.1){
         console.log(currentPresets.opacity)
-        currentPresets.opacity = Math.round(currentPresets.opacity - 0.1).toFixed(1)
+        currentPresets.opacity = (currentPresets.opacity - 0.1).toFixed(1)
       }
       else{
        currentPresets.opacity = 1.0
@@ -294,7 +294,25 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *  2: Write a callback function - that when the erase button is clicked, 
   *  remove all points (hint: they all have the class name `point`) from the drawing div
   */
+ 
+let eraseButton = document.querySelector("#change-erase-button");
+eraseButton.addEventListener("click",clickedEraseButton)
+
+function clickedEraseButton (event){
+  // if that's the actual element we want to change
  console.log(event.srcElement)
+
+ let allPoints = document.querySelectorAll(".point");
+ // we're using less than because we want to access all the points. i starts 0 until the end of the list
+for (i = 0; i<allPoints.length; i++){
+  // we access one at the time—we're using an array
+  allPoints[i].remove();
+}
+
+}
+
+
+ 
 
   
  /**************************TEXT INPUT ********************************/
@@ -304,8 +322,34 @@ function createNewDrawingPoint(mouseX, mouseY) {
   * 2: Write a callback function - that will add the value of the pressed key to the text content
   * (hint: access the textContent attribute of the typeArea Element`)..
   * BONUS: only add to the text if the key typed is either a letter of the alphabet or a number or a space char
-  * (hint: look up the what the keyCode attribute is for the key event)
+  * (hint: look up the what the keyCode attribute is for the key event)/
+  * decimal values associated with the key
+  */
+
+
+window.addEventListener("keydown",textInput)
+
+function textInput(event){
+  //console.log(this.textContent)
+  //console.log(event)
+  
+  // accessing the divs inside of the function
+  let accessingDiv = document.querySelector("#typeArea")
+  // we are not appending html element but text therefore it is not appendchild but textContent 
+  if (event.keyCode>= 48 && event.keyCode < 58){
+      accessingDiv.textContent += event.key
+  }
+    if (event.keyCode >=65 && event.keyCode < 91){
+      accessingDiv.textContent += event.key
+    }
+    if (event.keyCode == 32 ){
+      accessingDiv.textContent += event.key
+    }
+}
+
+
  
+
   /**************************BUTTONS FOR TEXT************************* */
   /*A:: FONT SIZE ********************************************/
   /* TO DO: 
@@ -317,6 +361,29 @@ function createNewDrawingPoint(mouseX, mouseY) {
      and change the font size to the new font size.
   */
    let fontsizeButton = document.querySelector("#change-font-size-button");
+
+  // for (let i = 0; i < fontsizeButton.length; i ++){
+  //   let fontsizeButton = fontsizeButton[i]
+    fontsizeButton.addEventListener("click",changeFontSize)
+  // }
+
+   function changeFontSize (){
+    if(currentPresets.fSize < 32)
+      currentPresets.fSize ++;
+    else{
+      currentPresets.fSize = 12;
+    }
+      let el = event.srcElement.children[0];
+      // if it is undefined, then you selected the p tag
+      if (el == undefined){
+        el = event.srcElement
+      }
+    console.log(el);
+    el.innerHTML = currentPresets.fSize;
+    let typeContentAccess = document.querySelector("#typeArea")
+    typeContentAccess.style.fontSize = currentPresets.fSize + "px";
+   }
+   
    /*B:: UPPERCASE ********************************************/
   /* TO DO: 
   *  1: Access the uppercase button and assign an event listener to listen for the click event
@@ -324,12 +391,26 @@ function createNewDrawingPoint(mouseX, mouseY) {
   */
   let upperCaseButton = document.querySelector("#toUpper-button");
 
+  upperCaseButton.addEventListener("click",changeUpperCase);
+
+  function changeUpperCase(){
+    let typeContentAccess = document.querySelector("#typeArea")
+    typeContentAccess.style.textTransform = "uppercase";
+  }
+
   /*C:: LOWER CASE ********************************************/
   /* TO DO: 
   *  1: Access the lowercase button and assign an event listener to listen for the click event
   *  2: Write a callback function - that when the this button is clicked change all the input text to lowercase (hint: access the textContent attribute of the typeArea Element`)
   */
  let lowerCaseButton = document.querySelector("#toLower-button");
+
+ lowerCaseButton.addEventListener("click",changeLowerCase);
+
+ function changeLowerCase (){
+  let typeContentAccess = document.querySelector("#typeArea")
+  typeContentAccess.style.textTransform = "lowercase";
+ }
  
  /*D:: ERASE BUTTON ********************************************/
   /* TO DO: 
@@ -337,12 +418,40 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *  2: Write a callback function - that when the erase button is clicked, 
   *  remove all text (hint: access the textContent attribute of the typeArea Element`)
   */
+
+  let textEraseButton = document.querySelector("#text-erase");
+  textEraseButton.addEventListener("click",clickedTextErase);
+
+  function clickedTextErase(){
+    console.log(event.srcElement)
+
+    let allTexts = document.querySelector("#typeArea")
+   // we are removing the texts inside of the div
+      allTexts.textContent =""
+  }
  /*E:: SELECT AND CHANGE TEXT COLOR BUTTON ********************************************/
  /* TO DO: 
   *  1: Access the color input and assign an event listener to listen for the change event
   *  2: Write a callback function - that when a color is selected,access all the text that has been input (hint: access the textContent attribute of the typeArea Element`)
      and change the color to the new color.
   */
+let textColor = document.querySelector("#setColor") 
+
+textColor.addEventListener ("click",changeTextColor)
+
+function changeTextColor (event){
+  console.log(event)
+  //console.log(this.value)
+  // this.value => hex code
+  let typeContentAccess = document.querySelector("#typeArea")
+  typeContentAccess.style.color = this.value
+}
+
+//event
+//this
+//this.id
+
+
 
   /*F:: EMOJI BUTTONS ********************************************/
   /* TO DO: 
@@ -351,5 +460,24 @@ function createNewDrawingPoint(mouseX, mouseY) {
   *  will be added to the inputted text hint: access the textContent attribute of the typeArea Element`)
   */
   let allEmojis = document.querySelectorAll(".emoji-button")  
+  for (let i = 0; i<allEmojis.length; i++){
+  let emoji = allEmojis[i]
+  emoji.addEventListener("click",changeEmojiButton)
+  }
+
+  function changeEmojiButton(event){
+    console.log(event.target)
+    let typeContentAccess = document.querySelector("#typeArea")
+    typeContentAccess.textContent = typeContentAccess.textContent + event.target.textContent
+  }
    
 } //end setup
+
+/* event.target: element that has eventListener attached to it , 
+(textContent, innerHTML)
+event.value = input field with special colour, 
+event.srcElement = when there's an actual html element
+
+appending > add on
+appendChild > when i want to make an image. (make an html element that holds image and append that to div)*/
+
